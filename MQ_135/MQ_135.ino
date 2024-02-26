@@ -92,7 +92,7 @@ bool drawFrame2(SH1106 *display, SH1106UiState* state, int x, int y) {
   // Besides the default fonts there will be a program to convert TrueType fonts into this format
   display->setTextAlignment(TEXT_ALIGN_LEFT);
   display->setFont(ArialMT_Plain_10);
-  display->drawString(0,0, "Air Quality Index : " + String(mq135_sensor.getPPM()));
+  display->drawString(0,0, "Air Quality Index : " + String(ppm);
   if(ppm > 5000){     //Unhealthy as fuck
     display->setTextAlignment(TEXT_ALIGN_LEFT);
     display->drawString(0 + x,10 + y, "Hazardous");
@@ -206,9 +206,9 @@ void loop() {
   // Blynk.run();
   // timer.run();
 
-  float rzero = mq135_sensor.getRZero();
-  float resistance = mq135_sensor.getResistance();
-  float ppm = mq135_sensor.getPPM();
+  rzero = mq135_sensor.getRZero();
+  resistance = mq135_sensor.getResistance();
+  ppm = mq135_sensor.getPPM();
   Serial.print("MQ135 RZero: ");
   Serial.print(rzero);
   Serial.print("\t Resistance: ");
